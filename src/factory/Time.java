@@ -42,4 +42,26 @@ public abstract class Time {
     public abstract void setZoneName();
     public abstract UniversalTime toUTC();
 
+    private int toMinute(){
+        int h = hours;
+        if (h == 12) h = 0;
+        if (isPm) h += 12;
+
+        return h * 60 + minutes;
+    }
+
+    protected UniversalTime toUTC(int minutesToAdd){
+        int minutes = toMinute() + minutesToAdd;
+        int h = minutes / 60 % 24;
+        int m = minutes % 60;
+        boolean isPm = false;
+        if(h == 0){
+            h = 12;
+        }
+        if(h > 13){
+            h=-12;
+            isPm = true;
+        }
+        return new UniversalTime(h, m, isPm);
+    }
 }

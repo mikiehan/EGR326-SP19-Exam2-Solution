@@ -12,6 +12,6 @@ public class UniversalTime extends Time {
 
     @Override
     public UniversalTime toUTC() {
-        return null; //not implemented
+        return this;
     }
 }

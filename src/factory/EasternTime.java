@@ -12,6 +12,6 @@ public class EasternTime extends Time {
 
     @Override
     public UniversalTime toUTC() {
-        return null; //not implemented
+        return toUTC(4 * 60);
     }
 }

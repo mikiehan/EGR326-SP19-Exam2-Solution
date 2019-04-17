@@ -12,6 +12,6 @@ public class PacificTime extends Time {
 
     @Override
     public UniversalTime toUTC() {
-        return null; //not implemented
+        return toUTC(7 * 60);
     }
 }
